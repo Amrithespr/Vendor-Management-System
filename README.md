@@ -12,11 +12,11 @@ Django REST Framework
 
 ## Setup Instructions
 
-. Create a Virtual Environment:
+ Create a Virtual Environment:
 
-. pip install virtualenvwrapper-win
+ pip install virtualenvwrapper-win
 
-. mkvirualenv environmentname
+ mkvirualenv environmentname
 
 ## Install Dependencies:
 
