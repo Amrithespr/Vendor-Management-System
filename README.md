@@ -1,8 +1,8 @@
-Django REST API Setup
+## Django REST API Setup
 
 This repository contains a Django project with a RESTful API using Django REST Framework.
 
-Prerequisites
+## Prerequisites
 
 Python (version 3.x recommended)
 
@@ -10,7 +10,7 @@ Django
 
 Django REST Framework
 
-Setup Instructions
+## Setup Instructions
 
 Create a Virtual Environment:
 
@@ -18,7 +18,7 @@ pip install virtualenvwrapper-win
 
 mkvirualenv environmentname
 
-Install Dependencies:
+## Install Dependencies:
 
 pip install django
 
@@ -44,7 +44,7 @@ python manage.py createsuperuser
 
 curl -X POST -d "username=your_superuser_username&password=your_superuser_password" http://localhost:8000/api-token-auth/
 
-Running the server
+## Running the server
 
 python manage.py runserver
 
@@ -52,7 +52,7 @@ Access Django Admin:
 
 Open the Django admin at http://127.0.0.1:8000/admin/ and log in using the superuser credentials. this is to access the database as a admin user.
 
-#How to run a api endpoint:
+## How to run a api endpoint:
 
 first we need to make sure that we migrated the models to database
 
@@ -61,7 +61,7 @@ then we need to start the server using "python manage.py runserver" command.
 then we need to open another cmd prompt and open virtual environment and open the project folder and  httpie commands.
 
 
-Testing the API endpoints.
+## Testing the API endpoints.
 
 Stop the server running in cmd (press ctrl+c)
 
@@ -147,7 +147,6 @@ About this API endpoint:
 here this endpoint is used to get the details of purchase_order with given po_id.
 
 Update a purchase_order's details:
-
 
 http PUT http://127.0.0.1:8000/api/purchase_orders/{po_id}/ po_number="UpdatedPO001" vendor="updatedid" order_date="2023-01-02T12:00:00" delivery_date="2023-01-15T12:00:00" items:='[{"item_name": 20 }]' quality_rating:=4.8 issue_date="2023-01-01" status="updated" acknowledgment_date="2023-01-02" "Authorization: Token your_obtained_token"
 
