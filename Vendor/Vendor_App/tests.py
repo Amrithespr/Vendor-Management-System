@@ -73,42 +73,6 @@ class OnTimeDeliveryRateTestCase(TestCase):
 
 
 
-# class AcknowledgePurchaseOrderViewTestCase1(TestCase):
-#     def setUp(self):
-#         # Create a vendor
-#         self.vendor = Vendor.objects.create(
-#             name="Test Vendor",
-#             contact_details="Test contact details",
-#             address="Test address",
-#             vendor_code="VENDOR001"
-#         )
-
-#     def test_no_completed_orders(self):
-#         # Create a purchase order with status other than 'completed'
-#         po = PurchaseOrder.objects.create(
-#             po_number="PO001",
-#             vendor=self.vendor,
-#             order_date=timezone.now(),
-#             delivery_date=timezone.now(),
-#             delivered_data=timezone.now(),
-#             items={},
-#             status="pending",  # Set status to 'pending' or any other status
-#             issue_date=timezone.now()  # Add issue_date field
-#         )
-
-#         # Call the signal handler to update vendor performance
-#         update_vendor_performance(sender=PurchaseOrder, instance=po)
-
-#         # Fetch the vendor object again from the database
-#         updated_vendor = Vendor.objects.get(pk=self.vendor.pk)
-
-#         # Assertions
-#         self.assertEqual(updated_vendor.on_time_delivery_rate, 0)
-#         self.assertEqual(updated_vendor.quality_rating_avg, 0)
-#         self.assertEqual(updated_vendor.average_response_time, 0)
-
-
-
 class AcknowledgePurchaseOrderViewTestCase(TestCase):
     def setUp(self):
         # Create a vendor
@@ -476,52 +440,4 @@ class PurchaseOrderRetrieveUpdateDeleteViewTestCase(TestCase):
 #   no errors for above test cases
 
 
-# from django.test import TestCase
-# from django.utils import timezone
-# from django.db.models import F
-# from .models import PurchaseOrder, Vendor, update_vendor_performance
 
-# class AcknowledgePurchaseOrderViewTestCase(TestCase):
-#     def setUp(self):
-#         # Create a vendor
-#         self.vendor = Vendor.objects.create(
-#             name="Test Vendor",
-#             contact_details="Test contact details",
-#             address="Test address",
-#             vendor_code="VENDOR001"
-#         )
-
-#     def test_no_completed_orders(self):
-#         # Create a purchase order with status other than 'completed'
-#         po = PurchaseOrder.objects.create(
-#             po_number="PO001",
-#             vendor=self.vendor,
-#             order_date=timezone.now(),
-#             delivery_date=timezone.now(),
-#             delivered_data=timezone.now(),
-#             items={},
-#             status="pending",  # Set status to 'pending' or any other status
-#             issue_date=timezone.now()  # Add issue_date field
-#         )
-
-#         # Call the signal handler to update vendor performance
-#         update_vendor_performance(sender=PurchaseOrder, instance=po)
-
-#         # Fetch the vendor object again from the database
-#         updated_vendor = Vendor.objects.get(pk=self.vendor.pk)
-
-#         # Calculate on-time delivery rate, handling zero division error
-#         completed_orders_count = updated_vendor.purchaseorder_set.filter(status='completed').count()
-#         on_time_deliveries_count = updated_vendor.purchaseorder_set.filter(status='completed', delivered_data__lte=F('delivery_date')).count()
-#         expected_on_time_delivery_rate = (
-#             on_time_deliveries_count / completed_orders_count
-#         ) if completed_orders_count != 0 else 0
-
-#         # Assertions
-#         self.assertEqual(updated_vendor.on_time_delivery_rate, expected_on_time_delivery_rate)
-#         self.assertEqual(updated_vendor.quality_rating_avg, 0)
-#         self.assertEqual(updated_vendor.average_response_time, 0)
-
-#         # Additional assertions to ensure no other fields are updated
-#         self.assertEqual(updated_vendor.other_field, self.vendor.other_field)
-#         # Add more assertions for other fields if needed
