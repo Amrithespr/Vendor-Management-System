@@ -52,7 +52,7 @@ Access Django Admin:
 
 Open the Django admin at http://127.0.0.1:8000/admin/ and log in using the superuser credentials. this is to access the database as a admin user.
 
-## How to run a api endpoint:
+## How to run an API endpoint:
 
 first we need to make sure that we migrated the models to database
 
